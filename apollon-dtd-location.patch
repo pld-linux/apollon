@@ -1,0 +1,182 @@
+diff -urN apollon-0.8.3-orig/doc/en/index.docbook apollon-0.8.3/doc/en/index.docbook
+--- apollon-0.8.3-orig/doc/en/index.docbook	2003-07-02 09:18:12.000000000 -0600
++++ apollon-0.8.3/doc/en/index.docbook	2003-07-29 13:44:41.000000000 -0600
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" ?>
+-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
++<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "/usr/share/apps/ksgmltools2/customization/dtd/kdex.dtd" [
+   <!ENTITY apollon '<application>Apollon</application>'>
+   <!ENTITY kapp "&apollon;"><!-- replace kadeau here -->
+   <!ENTITY % addindex "IGNORE">
+diff -urN apollon-0.8.3-orig/doc/en/index.docbook~ apollon-0.8.3/doc/en/index.docbook~
+--- apollon-0.8.3-orig/doc/en/index.docbook~	1969-12-31 17:00:00.000000000 -0700
++++ apollon-0.8.3/doc/en/index.docbook~	2003-07-02 09:18:12.000000000 -0600
+@@ -0,0 +1,168 @@
++<?xml version="1.0" ?>
++<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
++  <!ENTITY apollon '<application>Apollon</application>'>
++  <!ENTITY kapp "&apollon;"><!-- replace kadeau here -->
++  <!ENTITY % addindex "IGNORE">
++  <!ENTITY % English "INCLUDE"><!-- change language only here -->
++  
++  
++  <!-- Do not define any other entities; instead, use the entities
++       from kde-genent.entities and $LANG/user.entities. -->
++]>
++
++
++
++<!-- The language must NOT be changed here. -->
++
++<book lang="&language;">
++
++<!-- This header contains all of the meta-information for the document such
++as Authors, publish date, the abstract, and Keywords -->
++
++<bookinfo>
++<title>The Apollon Handbook</title>
++
++<authorgroup>
++<author>
++<firstname>Bastiaan</firstname>
++<othername></othername>
++<surname>Naber</surname>
++<affiliation>
++<address><email>bastiaan@ricardis.tudelft.nl</email></address>
++</affiliation>
++</author>
++</authorgroup>
++
++<!-- TRANS:ROLES_OF_TRANSLATORS -->
++
++<copyright>
++<year>2002</year>
++<holder>Bastiaan Naber</holder>
++<holder>Robert Wittams</holder>
++</copyright>
++<!-- Translators: put here the copyright notice of the translation -->
++<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook 
++     and in the FDL itself on how to use it. -->
++<legalnotice>&FDLNotice;</legalnotice>
++
++
++<date>13/12/2002</date>
++<releaseinfo>0.10</releaseinfo>
++
++<abstract>
++<para>
++&apollon; is a client for the giFT daemon which allows you to
++access the OpenFT filesharing network. The daemon is extensible,
++meaning access to other networks can be added.
++</para>
++</abstract>
++
++
++<keywordset>
++<keyword>KDE</keyword>
++<keyword>Apollon</keyword>
++<keyword>giFT</keyword>
++<keyword>openFT</keyword>
++</keywordset>
++
++</bookinfo>
++
++
++<chapter id="introduction">
++<title>Introduction</title>
++
++
++<para>
++&kapp; is a client for giFT. giFT is a daemon which allows you to access file
++sharing networks. Currently you can access the OpenFT network.
++</para>
++</chapter>
++
++<chapter id="commands">
++<title>Command Reference</title>
++
++<!-- (OPTIONAL, BUT RECOMMENDED) This chapter should list all of the
++application windows and their menubar and toolbar commands for easy reference.
++Also include any keys that have a special function but have no equivalent in the
++menus or toolbars. This may not be necessary for small apps or apps with no tool
++or menu bars. -->
++
++<sect1 id="kapp-mainwindow">
++<title>The main Apollon window</title>
++<para></para>
++
++<sect2>
++<title>The File Menu</title>
++<para>
++<variablelist>
++<varlistentry>
++<term><menuchoice>
++<shortcut>
++<keycombo><keycap>Ctrl</keycap><keycap>q</keycap></keycombo>
++</shortcut>
++<guimenu>File</guimenu>
++<guimenuitem>Quit</guimenuitem>
++</menuchoice></term>
++<listitem><para><action>Quits</action> &kapp;</para></listitem>
++</varlistentry>
++</variablelist>
++</para>
++
++</sect2>
++
++</sect1>
++</chapter>
++
++<chapter id="credits">
++
++<!-- Include credits for the programmers, documentation writers, and
++contributors here. The license for your software should then be included below
++the credits with a reference to the appropriate license file included in the KDE
++distribution. -->
++<title>Credits and License</title>
++<para>
++&kapp;
++</para>
++<para>
++Program copyright 2002 Bastiaan Naber <email>bastiaan@ricardis.tudelft.nl</email>
++Program copyright 2002 Robert Wittams <email>robert@wittams.com</email>
++</para>
++
++
++<para>
++Documentation copyright 2002 Bastiaan Naber <email>bastiaan@ricardis.tudelft.nl</email>
++Documentation copyright 2002 Robert Wittams<email>robert@wittams.com</email>
++</para>
++<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
++
++&underFDL;
++
++&underGPL;        	 <!-- GPL License -->
++
++
++</chapter>
++
++&documentation.index;
++</book>
++<!--
++Local Variables:
++mode: sgml
++sgml-minimize-attributes:nil
++sgml-general-insert-case:lower
++sgml-indent-step:0
++sgml-indent-data:nil
++End:
++-->
++
++
++
++
++
++
++
++
++
++
++
++
++

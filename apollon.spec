@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	a859b6d244e47cc259135d64f63df953
+Patch0:	apollon-dtd-location.patch
 URL:		http://apollon.sourceforge.net/
 BuildRequires:	giFT-devel
 BuildRequires:	kdelibs-devel
@@ -28,6 +29,7 @@ multimedialnych do podgl±du ¶ci±gniêtych plików, itd., itd.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
