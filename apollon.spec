@@ -2,7 +2,7 @@ Summary:	KDE-based client for the p2p-protocol giFT (OpenFT, FastTrack(Kazaa), G
 Summary(pl):	Klient bazuj±cy na KDE dla protoko³u p2p giFT (OpenFT, FastTrack(Kazaa), Gnutella)
 Name:		apollon
 Version:	0.9.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}-2.tar.bz2
@@ -59,6 +59,10 @@ mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/48x48/apps
 mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/48x48/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/48x48/apps
 mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/64x64/apps
 mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/64x64/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/64x64/apps
+
+mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/actions
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/actions/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/actions
+
 rm -rf $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor
 
 %find_lang %{name} --with-kde
