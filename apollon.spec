@@ -1,21 +1,20 @@
 Summary:	KDE-based client for the p2p-protocol giFT (OpenFT, FastTrack(Kazaa), Gnutella)
-Summary(pl):	Klient bazuj±cy na KDE dla protoko³u p2p giFT (OpenFT, FastTrack(Kazaa), Gnutella)
+Summary(pl):	Oparty na KDE klient dla protoko³u p2p giFT (OpenFT, FastTrack(Kazaa), Gnutella)
 Name:		apollon
 Version:	1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/apollon/%{name}-%{version}.tar.bz2
 # Source0-md5:	a7e656f61c4fc4815aa7150c6b02d1ca
 Patch0:		%{name}-dtd-location.patch
 URL:		http://apollon.sourceforge.net/
 BuildRequires:	giFT-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libmagic-devel
+BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	giFT-openft
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 Apollon is a KDE-based client for the p2p-protocol giFT (OpenFT,
@@ -34,7 +33,7 @@ plików multimedialnych do podgl±du ¶ci±gniêtych plików, itd., itd.
 
 %build
 kde_appsdir="%{_desktopdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 %configure
 %{__make}
 
@@ -44,7 +43,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_desktopdir}/{Applications/*.desktop,}
+mv -f $RPM_BUILD_ROOT%{_desktopdir}{/Applications/*.desktop,}
 
 # Ugly hack, but works.
 # Without this in apollon are no icons.
