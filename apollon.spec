@@ -1,14 +1,15 @@
 Summary:	KDE-based client for the p2p-protocol giFT (OpenFT, FastTrack(Kazaa), Gnutella)
 Summary(pl):	Klient bazuj±cy na KDE dla protoko³u p2p giFT (OpenFT, FastTrack(Kazaa), Gnutella)
 Name:		apollon
-Version:	0.9.1
+Version:	0.9.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	b6f235c0b50f98516b31466f3379cd2d
+# Source0-md5:	7a7e47c0d74443c4d9e8c99c7073fa92
 Patch0:		%{name}-dtd-location.patch
 URL:		http://apollon.sourceforge.net/
+Requires:	giFT-openft
 BuildRequires:	giFT-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	qt-devel
@@ -47,6 +48,18 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/{Applications/*.desktop,Network/Misc}
 
+# Ugly hack, but works.
+# Without this in apollon are no icons.
+mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/apps
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/apps
+mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/32x32/apps
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/32x32/apps
+mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/48x48/apps
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/48x48/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/48x48/apps
+mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/64x64/apps
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/64x64/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/64x64/apps
+rm -rf $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor
+
 %find_lang %{name} --with-kde
 
 %clean
@@ -56,5 +69,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_libdir}/*.so*
+%{_libdir}/*.la
+%{_datadir}/apps/apollon
 %{_applnkdir}/Network/Misc/*
-%{_pixmapsdir}/hicolor/*/apps/*
+%{_pixmapsdir}/*/*/*/*
