@@ -12,6 +12,7 @@ URL:		http://apollon.sourceforge.net/
 Requires:	giFT-openft
 BuildRequires:	giFT-devel
 BuildRequires:	kdelibs-devel
+BuildRequires:	libmagic-devel
 BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
