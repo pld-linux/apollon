@@ -9,11 +9,10 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}-2.tar.bz2
 # Source0-md5:	76ff5fcd1b8eef1d745405b14652fba2
 Patch0:		%{name}-dtd-location.patch
 URL:		http://apollon.sourceforge.net/
-Requires:	giFT-openft
 BuildRequires:	giFT-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	libmagic-devel
-BuildRequires:	qt-devel
+Requires:	giFT-openft
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_htmldir	%{_docdir}/kde/HTML
@@ -34,9 +33,8 @@ plików multimedialnych do podgl±du ¶ci±gniêtych plików, itd., itd.
 %patch0 -p1
 
 %build
-kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_appsdir="%{_desktopdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure
 %{__make}
 
@@ -46,29 +44,31 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/{Applications/*.desktop,Network/Misc}
+mv -f $RPM_BUILD_ROOT%{_desktopdir}/{Applications/*.desktop,}
 
 # Ugly hack, but works.
 # Without this in apollon are no icons.
-mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/apps
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/apps
-mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/32x32/apps
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/32x32/apps
-mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/48x48/apps
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/48x48/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/48x48/apps
-mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/64x64/apps
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/64x64/apps/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/64x64/apps
+mkdir $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/16x16/apps
+mv -f $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/* $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/16x16/apps
+mkdir $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/32x32/apps
+mv -f $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/* $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/32x32/apps
+mkdir $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/48x48/apps
+mv -f $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/* $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/48x48/apps
+mkdir $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/64x64/apps
+mv -f $RPM_BUILD_ROOT%{_iconsdir}/hicolor/64x64/apps/* $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/64x64/apps
 
-mkdir $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/actions
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/16x16/actions/* $RPM_BUILD_ROOT%{_pixmapsdir}/crystalsvg/16x16/actions
+mkdir $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/16x16/actions
+mv -f $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/actions/* $RPM_BUILD_ROOT%{_iconsdir}/crystalsvg/16x16/actions
 
-rm -rf $RPM_BUILD_ROOT%{_pixmapsdir}/hicolor
+rm -rf $RPM_BUILD_ROOT%{_iconsdir}/hicolor
 
 %find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -77,5 +77,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/*.so*
 %{_libdir}/*.la
 %{_datadir}/apps/apollon
-%{_applnkdir}/Network/Misc/*
-%{_pixmapsdir}/*/*/*/*
+%{_desktopdir}/*.desktop
+%{_iconsdir}/*/*/*/*
