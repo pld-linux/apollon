@@ -9,9 +9,11 @@ Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	e9290cecf95033594ec1029727790a53
 URL:		http://apollon.sourceforge.net/
 BuildRequires:	giFT-devel
-BuildRequires:	qt-devel
 BuildRequires:	kdelibs-devel
+BuildRequires:	qt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_htmldir	%{_docdir}/kde/HTML
 
 %description
 Apollon is a KDE-based client for the p2p-protocol giFT (OpenFT,
@@ -28,6 +30,9 @@ multimedialnych do podgl±du ¶ci±gniêtych plików, itd., itd.
 %setup -q
 
 %build
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
 %configure
 %{__make}
 
@@ -35,16 +40,19 @@ multimedialnych do podgl±du ¶ci±gniêtych plików, itd., itd.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_appsdir=%{_applnkdir}
+	DESTDIR=$RPM_BUILD_ROOT
+
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/{Applications/*.desktop,Network/Misc}
+
+%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Applications/*
-%{_datadir}/icons/hicolor/*/apps/*
-%{_docdir}/HTML/en/%{name}
+%{_applnkdir}/Network/Misc/*
+%{_pixmapsdir}/hicolor/*/apps/*
