@@ -1,12 +1,12 @@
 Summary:	KDE-based client for the p2p-protocol giFT (OpenFT, FastTrack(Kazaa))
 Summary(pl):	Klient bazuj±cy na KDE dla protoko³u p2p giFT (OpenFT, FastTrack(Kazaa))
 Name:		apollon
-Version:	0.8
+Version:	0.8.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	e9290cecf95033594ec1029727790a53
+# Source0-md5:	a859b6d244e47cc259135d64f63df953
 URL:		http://apollon.sourceforge.net/
 BuildRequires:	giFT-devel
 BuildRequires:	kdelibs-devel
