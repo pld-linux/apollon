@@ -3,9 +3,9 @@ diff -urN apollon-0.8.3-orig/doc/en/index.docbook apollon-0.8.3/doc/en/index.doc
 +++ apollon-0.8.3/doc/en/index.docbook	2003-07-29 13:44:41.000000000 -0600
 @@ -1,5 +1,5 @@
  <?xml version="1.0" ?>
--<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
-+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "/usr/share/apps/ksgmltools2/customization/dtd/kdex.dtd" [
-   <!ENTITY apollon '<application>Apollon</application>'>
+-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.0//EN" "dtd/kdex.dtd" [
++<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1.2-Based Variant V1.0//EN" "/usr/share/apps/ksgmltools2/customization/dtd/kdex.dtd" [
+   <!ENTITY apollon "<application>Apollon</application>">
    <!ENTITY kapp "&apollon;"><!-- replace kadeau here -->
    <!ENTITY % addindex "IGNORE">
 diff -urN apollon-0.8.3-orig/doc/en/index.docbook~ apollon-0.8.3/doc/en/index.docbook~
