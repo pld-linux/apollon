@@ -1,21 +1,18 @@
-diff -urN a/apollon/firstrun.ui.h b/apollon/firstrun.ui.h
---- a/apollon/firstrun.ui.h	2004-10-13 18:33:15.000000000 +0200
-+++ b/apollon/firstrun.ui.h	2004-12-14 14:50:42.047878040 +0100
-@@ -48,15 +48,13 @@
- 		return true;
- 	else 
+--- apollon-1.0.2.1/apollon/firstrun.ui.h.old	2005-07-25 11:25:30.000000000 +0200
++++ apollon-1.0.2.1/apollon/firstrun.ui.h	2005-07-25 11:28:07.000000000 +0200
+@@ -50,13 +50,13 @@
  	{
--		
+ 		
  		//where are the plugins installed?
 -		QDir installedPath ("/usr/share/giFT/giftd.conf.template");
--		if (installedPath.exists()) {
+-		if (QFile::exists(installedPath.path())) {
 -			installedPath = "/usr/share/giFT/";
 +		QDir installedPath;
 +		if (QFile::exists("/usr/share/giFT/giftd.conf.template")) {
 +			installedPath = "/usr/share/giFT";
  		}
  		else {
--			installedPath = "/usr/local/share/giFT/giftd.conf.template";
+ 			installedPath = "/usr/local/share/giFT/giftd.conf.template";
 -			if (QFile::exists(installedPath.path()))
 +			if (QFile::exists("/usr/local/share/giFT/giftd.conf.template"))
  				installedPath = "/usr/local/share/giFT";
