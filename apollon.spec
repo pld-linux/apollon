@@ -1,5 +1,5 @@
 Summary:	KDE-based client for the p2p-protocol giFT (OpenFT, FastTrack(Kazaa), Gnutella)
-Summary(pl):	Oparty na KDE klient dla protoko³u p2p giFT (OpenFT, FastTrack(Kazaa), Gnutella)
+Summary(pl.UTF-8):   Oparty na KDE klient dla protokoÅ‚u p2p giFT (OpenFT, FastTrack(Kazaa), Gnutella)
 Name:		apollon
 Version:	1.0.2.1
 Release:	1
@@ -22,11 +22,11 @@ Apollon is a KDE-based client for the p2p-protocol giFT (OpenFT,
 FastTrack(Kazaa!), Gnutella). It is very userfriendly, intuitively,
 offers an inline Mediaplayer for previews of downloaded files, etc.
 
-%description -l pl
-Apollon jest graficznym klientem dla protoko³u p2p giFT (OpenFT,
-FastTrack(Kazaa!), Gnutella) bazuj±cym na KDE. Jest on bardzo
-przyjazny u¿ytkownikowi, intuicyjny, oferuje wewnêtrzny odtwarzacz
-plików multimedialnych do podgl±du ¶ci±gniêtych plików, itd., itd.
+%description -l pl.UTF-8
+Apollon jest graficznym klientem dla protokoÅ‚u p2p giFT (OpenFT,
+FastTrack(Kazaa!), Gnutella) bazujÄ…cym na KDE. Jest on bardzo
+przyjazny uÅ¼ytkownikowi, intuicyjny, oferuje wewnÄ™trzny odtwarzacz
+plikÃ³w multimedialnych do podglÄ…du Å›ciÄ…gniÄ™tych plikÃ³w, itd., itd.
 
 %prep
 %setup -q
